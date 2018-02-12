@@ -12,3 +12,5 @@ Maven 配置文件中添加镜像库:
 2.jwt代替传统的session 初始化用户 user/123  admin/123
 
 3.集成shiro做用户的鉴权
+
+4.h5前端采用metronic4的UI,静态文件委托在七牛云上
