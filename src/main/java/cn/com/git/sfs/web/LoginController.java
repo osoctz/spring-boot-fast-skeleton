@@ -7,6 +7,7 @@ import cn.com.git.sfs.security.auth.JwtAuthenticationRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mobile.device.Device;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,10 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -28,6 +26,7 @@ import static org.springframework.http.ResponseEntity.ok;
  * Created by git on 2018/2/11.
  */
 @RestController
+@RequestMapping( value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE )
 @Api(value = "登录接口")
 public class LoginController {
 
@@ -37,7 +36,7 @@ public class LoginController {
     @Autowired
     private TokenHelper tokenHelper;
 
-    @PostMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ApiOperation(value = "登录", notes = "login逻辑")
     public ResponseEntity<UserTokenState> login(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device) throws AuthenticationException, IOException {
 
