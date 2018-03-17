@@ -37,7 +37,7 @@ public class LoginController {
     private TokenHelper tokenHelper;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    @ApiOperation(value = "登录", notes = "login逻辑")
+    @ApiOperation(value = "登录", notes = "login逻辑1")
     public ResponseEntity<UserTokenState> login(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device) throws AuthenticationException, IOException {
 
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword()));
