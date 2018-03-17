@@ -102,7 +102,7 @@
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
+							<directory>target</directory>
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
